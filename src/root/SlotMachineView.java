@@ -445,17 +445,25 @@ public class SlotMachineView {
 
     /**
      * Converts the given image to given width & height
+     * @param image ImageIcon
+     * @param width width size of the converting image
+     * @param height height size of the converting image
+     * @return ImageIcon converted ImageIcon
+     * @throws NullPointerException if image is Null it will throw exception
      */
-    private ImageIcon convertImage(ImageIcon image, int width, int height) {
+    private ImageIcon convertImage(ImageIcon image, int width, int height) throws NullPointerException{
         if (image != null) {
             return new ImageIcon(image.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT));
         } else {
-            return null;
+            throw new NullPointerException("Null");
         }
     }
 
     /**
      * Set Text to given Label
+     * @param label Label to change text
+     * @param text text name
+     * @throws NullPointerException if label is null it will throw exception
      */
     public void setText(String text, JLabel label) throws NullPointerException {
         if (text != null && label != null) {
@@ -467,6 +475,8 @@ public class SlotMachineView {
 
     /**
      * Checks credit amount length and set to Credit Label
+     * @param credit update amount
+     * @throws NullPointerException if credit is it will throw exception
      */
     public void setCreditAmount(String credit) throws NullPointerException {
         if (credit != null) {
@@ -485,8 +495,15 @@ public class SlotMachineView {
     /**
      * Set given ImageIcon to given Label
      * Converts image size
+     * @param image image that to change in Label
+     * @param reel JLabel that image to set
+     * @throws NullPointerException if image or reel is null it will trow exception
      */
     public void setImageReel(ImageIcon image, JLabel reel) {
+        if(image == null || reel == null) {
+            throw new NullPointerException("null");
+        }
+
         reel.setIcon(convertImage(image, 200, 200));
     }
 
