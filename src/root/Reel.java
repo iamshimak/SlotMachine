@@ -30,6 +30,8 @@ public class Reel {
             if (!isAvailable) {
                 randomNums[count] = random;
                 count++;
+				if (isAvailable == true) {
+				}
             }
             isAvailable = false;
         } while (count < 6);
